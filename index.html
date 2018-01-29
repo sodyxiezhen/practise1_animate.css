@@ -59,10 +59,8 @@
 		//拓展jQuery的方法
 		$.fn.extend({
 		  animateCss: function(animationName, callback) {
-		    var animationEnd =
-		      'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-		    this.removeClass('animated ' + animationName).addClass('animated ' + animationName).one(animationEnd, function() {
-		      $(this).removeClass('animated ' + animationName);
+		  	$(this).removeClass().addClass(animationName + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+		      $(this).removeClass();
 		      if (callback) {
 		        callback();
 		      }
