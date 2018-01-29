@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>梦为努力浇了水</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<style type="text/css">
+		.container{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		li{
+			list-style: none;
+		}
+		ul{
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="animated bounceInRight" id="context">
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+			<li>
+				我是正文啦
+			</li>
+		</ul>
+		<button id="reload">点击我尝试重新加载</button>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	(function(){
+		//拓展jQuery的方法
+		$.fn.extend({
+		  animateCss: function(animationName, callback) {
+		    var animationEnd =
+		      'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+		    this.removeClass('animated ' + animationName).addClass('animated ' + animationName).one(animationEnd, function() {
+		      $(this).removeClass('animated ' + animationName);
+		      if (callback) {
+		        callback();
+		      }
+		    });
+		    return this;
+		  },
+		});
+		$('#reload').click(function(){
+			$('#context').animateCss('bounceInRight');
+		});
+	})()
+</script>
+</html>
